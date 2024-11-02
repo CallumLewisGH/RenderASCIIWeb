@@ -1,0 +1,11 @@
+.MainBox
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.ContentBox
+{
+    display: flex;
+    flex-direction: row;
+}
