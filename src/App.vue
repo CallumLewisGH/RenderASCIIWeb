@@ -1,10 +1,9 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-
-</script>
-
 <template>
-  <div class="MainBox">
-    <RouterView />
-  </div>
-</template>
+  <component  :is="$route.meta.layout || 'div'">
+      <router-view></router-view>
+  </component>
+
+  </template>
+
+  <script setup lang="ts">
+  </script>
