@@ -45,5 +45,5 @@ export default defineConfig({
     open: true, // Automatically open the browser when the server starts
   },
 
-  base: '/Render-ASCI-Web', // Set base URL if deploying to a subdirectory (e.g., '/my-app/')
+  base: '/RenderASCIIWeb', // Set base URL if deploying to a subdirectory (e.g., '/my-app/')
 })
