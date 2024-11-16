@@ -1,7 +1,7 @@
 <template>
-  <div class="Centraliser">
+  <div class="Centraliser" v-if="ASCIIStore.greyscaledImage">
     <div class="ImageActions">
-      <div v-if="ASCIIStore.greyscaledImage">
+      <div>
         <div>
           <img :src="ASCIIStore.greyscaledImage" alt="Greyscale effect" style="width: auto; height: 60vh; border-radius: 4%;"/>
         </div>
