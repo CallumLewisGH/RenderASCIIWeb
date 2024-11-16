@@ -1,14 +1,27 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "target": "es6",  // Set the target JavaScript version
+    "module": "esnext",  // Use ES module syntax (adjust if needed)
+    "moduleResolution": "node",  // Use Node's module resolution logic
+    "jsx": "preserve",  // Retain JSX syntax for Vue files
+    "esModuleInterop": true,  // Enable interop between CommonJS and ES Modules
+    "resolveJsonModule": true,  // Support importing JSON files
+    "allowSyntheticDefaultImports": true,  // Allow default imports from modules without default exports
+    "strict": true,  // Enable strict type-checking options
+    "skipLibCheck": true,  // Skip checking of declaration files
+    "forceConsistentCasingInFileNames": true,  // Ensure consistent casing in file names
+    "outDir": "./dist",  // Output directory for compiled JS files
+    "baseUrl": ".",  // Base directory for relative paths (adjust as needed)
+    "paths": {  // Optional: Use paths to create aliases (adjust as needed)
+      "@/*": ["src/*"]
+    }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.vue"
+    "src/**/*.ts",  // Include all TypeScript files
+    "src/**/*.d.ts",  // Include all TypeScript declaration files
+    "src/**/*.vue"  // Include Vue files (for Vue 3 with TypeScript support)
+  ],
+  "exclude": [
+    "node_modules"  // Exclude node_modules folder from compilation
   ]
 }
