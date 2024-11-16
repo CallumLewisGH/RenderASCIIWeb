@@ -8,7 +8,7 @@
     "playwright.config.*",
     "src/**/*.ts",
     "src/**/*.vue"
-  ],
+, "main.ts"  ],
   "compilerOptions": {
     "composite": true,
     "noEmit": true,
