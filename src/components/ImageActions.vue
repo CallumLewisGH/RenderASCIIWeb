@@ -1,30 +1,40 @@
 <template>
-  <div v-if="ASCIIStore.greyscaledImage">
-    <img :src="ASCIIStore.greyscaledImage" alt="Greyscale effect" />
+  <div class="Centraliser">
+    <div class="ImageActions">
+      <div v-if="ASCIIStore.greyscaledImage">
+        <div>
+          <img :src="ASCIIStore.greyscaledImage" alt="Greyscale effect" style="width: auto; height: 60vh; border-radius: 4%;"/>
+        </div>
+      </div>
+
+      <div class="Slider">
+        <label for="default-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contrast</label>
+        <input
+        v-model="ASCIIStore.contrast"
+          id="default-range"
+          type="range" value="1"
+          class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+          min="0"
+          max="3"
+          step="0.02"
+          @change="updateGreyscaleEffect">
+      </div>
+
+      <div class="Slider">
+        <label for="default-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Compression</label>
+        <input
+          v-model="ASCIIStore.compression"
+          id="default-range"
+          type="range" value="4"
+          class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+          min="1"
+          max="16"
+          step="0.02"
+          @change="updateGreyscaleEffect">
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="contrast">Contrast: {{ ASCIIStore.contrast }}</label>
-    <input
-      type="range"
-      id="contrast"
-      v-model="ASCIIStore.contrast"
-      min="0"
-      max="3"
-      step="0.1"
-      @change="updateGreyscaleEffect"
-    />
-    <br />
-    <label for="compression">Compression: {{ ASCIIStore.compression }}</label>
-    <input
-      type="range"
-      id="compression"
-      v-model="ASCIIStore.compression"
-      min="0"
-      max="16"
-      step="0.1"
-      @change="updateGreyscaleEffect"
-    />
-  </div>
+
 </template>
 
 <script setup>
