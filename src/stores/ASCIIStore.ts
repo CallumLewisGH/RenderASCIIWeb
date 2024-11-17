@@ -75,7 +75,8 @@ export const useASCIStore = defineStore('ASCIStore', {
     },
 
   stringGenerator(characterArray: string[][]) {
-      return characterArray.map(row => row.join("")).join("\n");
+    this.loading = false;
+    return characterArray.map(row => row.join("")).join("\n");
   },
 
   async greyscaleEffect() {
@@ -135,6 +136,7 @@ export const useASCIStore = defineStore('ASCIStore', {
   },
 
   async generateASCIIArt() {
+    this.loading = true;
     const input = this.greyscaledImage || new HTMLCanvasElement();
     let image: HTMLImageElement;
 
