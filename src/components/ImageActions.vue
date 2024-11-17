@@ -8,12 +8,12 @@
       </div>
 
       <div class="Slider">
-        <label for="default-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contrast</label>
+        <label for="default-range" class="block mb-2 text-sm font-medium text-white">Contrast</label>
         <input
         v-model="ASCIIStore.contrast"
           id="default-range"
           type="range" value="1"
-          class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+          class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-700"
           min="0"
           max="3"
           step="0.02"
@@ -21,19 +21,30 @@
       </div>
 
       <div class="Slider">
-        <label for="default-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Compression</label>
+        <label for="default-range" class="block mb-2 text-sm font-medium text-white">Compression</label>
         <input
           v-model="ASCIIStore.compression"
           id="default-range"
           type="range" value="4"
-          class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+          class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-700"
           min="1"
           max="16"
           step="0.02"
           @change="updateGreyscaleEffect">
       </div>
+
+    <div class="Toggle">
+      <label for="toggle" class="block mb-2 text-sm font-medium text-white">Inverted</label>
+        <label for="toggle" class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="toggle" class="sr-only peer" @change="updateInverted">
+          <div class="w-11 h-6 bg-gray-700 rounded-full peer peer-checked:bg-blue-500 transition-colors"></div>
+            <div
+              class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-5 transition-transform"
+            ></div>
+      </label>
     </div>
   </div>
+</div>
 
 </template>
 
@@ -47,4 +58,8 @@ const ASCIIStore = useASCIStore();
 const updateGreyscaleEffect = () => {
   ASCIIStore.greyscaleEffect();
 };
+
+const updateInverted = () => {
+  ASCIIStore.invert();
+}
 </script>

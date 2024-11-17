@@ -1,6 +1,4 @@
 import { defineStore } from 'pinia';
-import { createCanvas, loadImage } from 'canvas';
-import { ref } from 'vue';
 
 interface ASCIState {
   imageFile: File | null;
@@ -10,7 +8,7 @@ interface ASCIState {
   contrast: number | null;
   compression: number | null;
   fileURL: string | null;
-  inverted: boolean | null;
+  isinverted: boolean;
 }
 
 export const useASCIStore = defineStore('ASCIStore', {
@@ -22,7 +20,7 @@ export const useASCIStore = defineStore('ASCIStore', {
     fileURL: null,
     contrast: 1.0,
     compression: 1.0,
-    inverted: false
+    isinverted: false,
   }),
 
   getters: {
@@ -39,7 +37,7 @@ export const useASCIStore = defineStore('ASCIStore', {
       this.contrast = 1.0;
       this.greyscaledImage = null;
       this.greyscaleEffect();
-      this.inverted = false;
+      this.isinverted = false;
 
 
     },
@@ -47,6 +45,11 @@ export const useASCIStore = defineStore('ASCIStore', {
     clear() {
         this.ASCIArray = null;
         this.percentageCompletion = null;
+    },
+
+    invert () {
+      this.isinverted = !this.isinverted;
+      this.greyscaleEffect();
     },
 
     characterDecide(gsValue: number) {
@@ -105,12 +108,12 @@ export const useASCIStore = defineStore('ASCIStore', {
           let gsValue = Math.floor(0.299 * r + 0.587 * g + 0.114 * b);
 
           // Apply Node.js contrast adjustment formula
-          if (this.inverted = false) {
+          if (this.isinverted == false) {
             gsValue = Math.floor((gsValue - 128) * this.contrast + 128);
           }
 
           else {
-            gsValue = Math.floor((gsValue - 128) * this.contrast + 128);
+            gsValue = Math.floor((128 - gsValue) * this.contrast + 128);
           }
 
 
