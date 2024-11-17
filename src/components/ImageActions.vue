@@ -34,7 +34,7 @@
       </div>
 
     <div class="Toggle">
-      <label for="toggle" class="block mb-2 text-sm font-medium text-white">Inverted</label>
+      <label for="toggle" class="block mb-2 text-sm font-medium text-white">Invert</label>
         <label for="toggle" class="relative inline-flex items-center cursor-pointer">
           <input type="checkbox" id="toggle" class="sr-only peer" @change="updateInverted">
           <div class="w-11 h-6 bg-gray-700 rounded-full peer peer-checked:bg-blue-500 transition-colors"></div>
