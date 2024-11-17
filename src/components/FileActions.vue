@@ -27,8 +27,13 @@
       </label>
     </div>
 
+    <div class="flex items-center justify-center" style="margin-top: 4%;">
+      <div class="h-16 w-16" v-if="ASCIStore.loading == false"></div>
+      <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-white-100 border-solid border-r-0 border-b-0 border-l-0" v-if="ASCIStore.loading == true"></div>
+    </div>
+
     <!-- Download Button -->
-    <div class="flex items-center justify-center w-full" style="margin-top: 8%;">
+    <div class="flex items-center justify-center w-full" style="margin-top: 4%;">
       <label class="flex flex-col items-center justify-center w-full h-full border-2 border-solid rounded-lg cursor-pointer hover:bg-gray-800 bg-gray-700 border-gray-600 hover:border-gray-500">
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
           <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -40,6 +45,7 @@
         <button @click="downloadFile"></button>
       </label>
     </div>
+
   </div>
 </template>
 

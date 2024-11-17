@@ -4,7 +4,7 @@ interface ASCIState {
   imageFile: File | null;
   greyscaledImage: string | null | undefined;
   ASCIArray: string | null;
-  percentageCompletion: number | null;
+  loading: Boolean | null;
   contrast: number | null;
   compression: number | null;
   fileURL: string | null;
@@ -16,7 +16,7 @@ export const useASCIStore = defineStore('ASCIStore', {
     imageFile: null,
     greyscaledImage: null,
     ASCIArray: null,
-    percentageCompletion: null,
+    loading: false,
     fileURL: null,
     contrast: 1.0,
     compression: 1.0,
@@ -32,7 +32,7 @@ export const useASCIStore = defineStore('ASCIStore', {
       this.imageFile = file;
       this.fileURL = URL.createObjectURL(file);
       this.ASCIArray = null;
-      this.percentageCompletion = 0;
+      this.loading = false;
       this.compression = 1.0;
       this.contrast = 1.0;
       this.greyscaledImage = null;
@@ -44,7 +44,7 @@ export const useASCIStore = defineStore('ASCIStore', {
 
     clear() {
         this.ASCIArray = null;
-        this.percentageCompletion = null;
+        this.loading = null;
     },
 
     invert () {
@@ -79,6 +79,7 @@ export const useASCIStore = defineStore('ASCIStore', {
   },
 
   async greyscaleEffect() {
+    this.loading = true;
     if (this.imageFile != null) {
       this.compression = this.compression || 2; // Image downscaling factor
       this.contrast = this.contrast || 1.2;    // Contrast adjustment factor
@@ -116,7 +117,6 @@ export const useASCIStore = defineStore('ASCIStore', {
             gsValue = Math.floor((128 - gsValue) * this.contrast + 128);
           }
 
-
           // Clamp grayscale value between 0 and 255
           gsValue = Math.min(Math.max(gsValue, 0), 255);
 
@@ -130,6 +130,7 @@ export const useASCIStore = defineStore('ASCIStore', {
       context!.putImageData(resizedImageData, 0, 0);
 
       this.greyscaledImage = canvas.toDataURL(); // Store the processed image
+      this.loading = false;
     }
   },
 
