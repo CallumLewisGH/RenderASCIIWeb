@@ -10,6 +10,7 @@ interface ASCIState {
   contrast: number | null;
   compression: number | null;
   fileURL: string | null;
+  inverted: boolean | null;
 }
 
 export const useASCIStore = defineStore('ASCIStore', {
@@ -21,6 +22,7 @@ export const useASCIStore = defineStore('ASCIStore', {
     fileURL: null,
     contrast: 1.0,
     compression: 1.0,
+    inverted: false
   }),
 
   getters: {
@@ -37,6 +39,7 @@ export const useASCIStore = defineStore('ASCIStore', {
       this.contrast = 1.0;
       this.greyscaledImage = null;
       this.greyscaleEffect();
+      this.inverted = false;
 
 
     },
@@ -102,7 +105,14 @@ export const useASCIStore = defineStore('ASCIStore', {
           let gsValue = Math.floor(0.299 * r + 0.587 * g + 0.114 * b);
 
           // Apply Node.js contrast adjustment formula
-          gsValue = Math.floor((125 - gsValue) * this.contrast + 125);
+          if (this.inverted = false) {
+            gsValue = Math.floor((gsValue - 128) * this.contrast + 128);
+          }
+
+          else {
+            gsValue = Math.floor((gsValue - 128) * this.contrast + 128);
+          }
+
 
           // Clamp grayscale value between 0 and 255
           gsValue = Math.min(Math.max(gsValue, 0), 255);

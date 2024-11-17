@@ -2,9 +2,10 @@
     <section class="Contact">
 
         <br>
-        <h2 style="color: aliceblue;">Find Me</h2>
+        <h2 style="color: aliceblue;">Find Me and Info</h2>
 
-        <ul class="contact-info">
+        <ul class="contact-info" style="border-bottom: solid rgb(66, 78, 97); padding-bottom: 1%;">
+            <li><a href="https://github.com/CallumLewisGH/RenderASCIIWeb"><b>Website's Repository</b></a></li>
             <li><a href = "https://www.linkedin.com/in/callum-lewis-9158ba263/"> <b>LinkedIn</b></a></li>
             <li><a href = "https://github.com/CallumLewisGH"> <b>GitHub</b></a></li>
             <li><a href= "mailto:callumlewis852@gmail.com"> <b>Email</b></a></li>

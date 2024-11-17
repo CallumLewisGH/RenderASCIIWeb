@@ -1,7 +1,5 @@
 <template>
     <div class="MainBox">
-        <Header/>
-
         <router-view/>
 
         <Footer/>

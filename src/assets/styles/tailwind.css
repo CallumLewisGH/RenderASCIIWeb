@@ -34,6 +34,7 @@ body {
     justify-content: center;
 }
 .FileActions {
+    margin-top: 4%;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -55,17 +56,18 @@ body {
 
 .Header
 {
+    padding-block: 0.5%;
     border-bottom: solid rgb(66, 78, 97);
-    background-color: #181e30;
+    background-color: #ffee00;
     flex-direction: row;
     justify-content: center;
     font-size: xx-large;
-    color: whitesmoke;
+    color: rgb(29, 29, 29);
 }
 
 .Footer
 {
-    background-color: #21293f;
+    background-color: #1f2937;
     padding-block: 1%;
     text-align: center;
     bottom: 0%;
