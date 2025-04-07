@@ -136,6 +136,7 @@ export const useASCIStore = defineStore('ASCIStore', {
   },
 
   async generateASCIIArt() {
+    if (this.greyscaledImage == null || undefined) {return};
     this.loading = true;
     const input = this.greyscaledImage || new HTMLCanvasElement();
     let image: HTMLImageElement;

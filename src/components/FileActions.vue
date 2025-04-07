@@ -88,6 +88,7 @@ const onDrop = async (event: DragEvent) => {
 };
 
 const downloadFile = async () => {
+  if (ASCIStore.greyscaledImage == null || undefined) {return};
   await ASCIStore.generateASCIIArt();
 
   const name = ASCIStore.imageFile?.name.trim() || 'default_file_name';
